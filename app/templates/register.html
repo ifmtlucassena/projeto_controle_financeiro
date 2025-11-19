@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Cadastro - Controle Financeiro{% endblock %}
+
+{% block content %}
+<div class="max-w-md mx-auto">
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8">
+        <div class="text-center mb-8">
+            <h1 class="text-2xl font-bold text-slate-900">Crie sua conta</h1>
+            <p class="text-slate-500 mt-2">Comece a controlar suas finanças hoje</p>
+        </div>
+
+        <form method="POST" action="{{ url_for('main.register') }}" class="space-y-6">
+            <div>
+                <label for="nome" class="block text-sm font-medium text-slate-700 mb-2">Nome Completo</label>
+                <input type="text" name="nome" id="nome" required 
+                    class="w-full px-4 py-2 rounded-xl border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all duration-200">
+            </div>
+
+            <div>
+                <label for="email" class="block text-sm font-medium text-slate-700 mb-2">Email</label>
+                <input type="email" name="email" id="email" required 
+                    class="w-full px-4 py-2 rounded-xl border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all duration-200">
+            </div>
+
+            <div>
+                <label for="password" class="block text-sm font-medium text-slate-700 mb-2">Senha</label>
+                <input type="password" name="password" id="password" required minlength="6"
+                    class="w-full px-4 py-2 rounded-xl border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all duration-200">
+                <p class="text-xs text-slate-400 mt-1">Mínimo de 6 caracteres</p>
+            </div>
+
+            <button type="submit" 
+                class="w-full py-3 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-xl transition-all duration-200 shadow-lg shadow-emerald-500/30">
+                Cadastrar
+            </button>
+        </form>
+
+        <div class="mt-6 text-center text-sm text-slate-500">
+            Já tem uma conta? 
+            <a href="{{ url_for('main.login') }}" class="text-emerald-600 hover:text-emerald-700 font-medium">Entre aqui</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
